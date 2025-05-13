@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de Mangás</title>
+    <script src="{% static 'app/script.js' %}"></script>
+</head>
+<body>
+    <h1>Catálogo de Mangás</h1>
+
+    <button onclick="listarMangas()">Listar Mangás</button>
+    <ul id="manga-list"></ul>
+
+    <h2>Adicionar Mangá</h2>
+    <input id="titulo" placeholder="Título"><br>
+    <input id="autor" placeholder="Autor"><br>
+    <input id="volumes" type="number" placeholder="Volumes"><br>
+    <input id="preco" type="number" placeholder="Preço"><br>
+    <button onclick="adicionarManga()">Adicionar</button>
+
+    <h2>Buscar Mangá por ID</h2>
+    <input id="buscar-id" type="number" placeholder="ID do mangá"><br>
+    <button onclick="buscarMangaPorId()">Buscar</button>
+    <div id="manga-detalhe"></div>
+</body>
+</html>
