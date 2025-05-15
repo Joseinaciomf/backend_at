@@ -1,27 +1,67 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Gerenciador de Mangás</title>
-    <script src="{% static 'app/script.js' %}"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Mangás</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="{% static 'app/script.js' %}"></script>
 </head>
-<body>
-    <h1>Catálogo de Mangás</h1>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div class="max-w-3xl mx-auto py-10 px-6">
+    <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Gerenciador de Mangás</h1>
 
-    <button onclick="listarMangas()">Listar Mangás</button>
-    <ul id="manga-list"></ul>
+    <!-- Botão listar -->
+    <div class="mb-6 text-center">
+      <button onclick="listarMangas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Listar Mangás
+      </button>
+    </div>
 
-    <h2>Adicionar Mangá</h2>
-    <input id="titulo" placeholder="Título"><br>
-    <input id="autor" placeholder="Autor"><br>
-    <input id="volumes" type="number" placeholder="Volumes"><br>
-    <input id="preco" type="number" placeholder="Preço"><br>
-    <button onclick="adicionarManga()">Adicionar</button>
+    <!-- Lista de mangás -->
+    <ul id="manga-list" class="bg-white rounded shadow p-4 space-y-2"></ul>
 
-    <h2>Buscar Mangá por ID</h2>
-    <input id="buscar-id" type="number" placeholder="ID do mangá"><br>
-    <button onclick="buscarMangaPorId()">Buscar</button>
-    <div id="manga-detalhe"></div>
+    <!-- Adicionar mangá -->
+    <div class="mt-10">
+      <h2 class="text-2xl font-semibold mb-4">Adicionar Mangá</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input id="titulo" placeholder="Título" class="p-2 border rounded">
+        <input id="autor" placeholder="Autor" class="p-2 border rounded">
+        <input id="volumes" type="number" placeholder="Volumes" class="p-2 border rounded">
+        <input id="preco" type="number" placeholder="Preço" class="p-2 border rounded">
+      </div>
+      <button onclick="adicionarManga()" class="mt-4 bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">
+        Adicionar
+      </button>
+    </div>
+
+    <!-- Buscar por ID -->
+    <div class="mt-10">
+      <h2 class="text-2xl font-semibold mb-4">Buscar Mangá por ID</h2>
+      <div class="flex flex-wrap items-center gap-4">
+        <input id="buscar-id" placeholder="ID" class="p-2 border rounded w-32">
+        <button onclick="buscarMangaPorId()" class="bg-yellow-500 hover:bg-yellow-700 text-white py-2 px-4 rounded">
+          Buscar
+        </button>
+      </div>
+      <div id="manga-detalhe" class="mt-4 bg-white border rounded p-4"></div>
+    </div>
+
+    <!-- Atualizar mangá -->
+    <div class="mt-10">
+      <h2 class="text-2xl font-semibold mb-4">Atualizar Mangá</h2>
+      <input id="id-atualizar" placeholder="ID do mangá" class="p-2 border rounded w-full mb-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input id="titulo-atualizar" placeholder="Novo título (opcional)" class="p-2 border rounded">
+        <input id="autor-atualizar" placeholder="Novo autor (opcional)" class="p-2 border rounded">
+        <input id="volumes-atualizar" type="number" placeholder="Novos volumes (opcional)" class="p-2 border rounded">
+        <input id="preco-atualizar" type="number" placeholder="Novo preço (opcional)" class="p-2 border rounded">
+      </div>
+      <button onclick="atualizarManga()" class="mt-4 bg-indigo-500 hover:bg-indigo-700 text-white py-2 px-4 rounded">
+        Atualizar
+      </button>
+    </div>
+  </div>
 </body>
 </html>
